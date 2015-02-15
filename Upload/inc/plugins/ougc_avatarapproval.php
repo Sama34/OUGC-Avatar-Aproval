@@ -102,13 +102,12 @@ function ougc_avatarapproval_info()
 	return array(
 		'name'			=> 'OUGC Avatar Approval',
 		'description'	=> $lang->setting_group_ougc_avatarapproval_desc,
-		'website'		=> 'http://mods.mybb.com/view/ougc-avatar-approval',
+		'website'		=> 'http://omarg.me',
 		'author'		=> 'Omar G.',
 		'authorsite'	=> 'http://omarg.me',
-		'version'		=> '1.0',
-		'versioncode'	=> 1000,
-		'compatibility'	=> '16*',
-		'guid'			=> '',
+		'version'		=> '1.8',
+		'versioncode'	=> 1800,
+		'compatibility'	=> '18*',
 		'pl'			=> array(
 			'version'	=> 12,
 			'url'		=> 'http://mods.mybb.com/view/pluginlibrary'

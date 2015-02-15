@@ -6,7 +6,7 @@ Allow moderators to manage avatar uploads/updates.
 ***
 
 ### Requirements
-- [MyBB](http://www.mybb.com/downloads "Download MyBB") version 1.6.5+
+- [MyBB](http://www.mybb.com/downloads "Download MyBB") version 1.8+
 - [PluginLibrary](http://mods.mybb.com/view/pluginlibrary "Download PluginLibrary") library for MyBB to work.
 
 ### Installation
@@ -14,6 +14,9 @@ Allow moderators to manage avatar uploads/updates.
 2. Go to ACP -> Configuration -> Plugins and activate/install the plugin.
 3. Edit general settings from "OUGC Avatar Approval".
 4. __Enjoy!__
+
+### Update
+_No updates at the moment._
 
 ### Support
 Please visit [MyBB Plugins](http://forums.mybb-plugins.com/Forum-Free-Plugins--29 "Visit MyBB Plugins") for premium support. Free support may be received in the [MyBB Community](http://community.mybb.com "Visit MyBB Community")
