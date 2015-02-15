@@ -191,7 +191,7 @@ function ougc_avatarapproval_activate()
 	<div>{$message}</div>
 </div>
 {$br}',
-		'modcp_nav'			=> '<tr><td class="trow1 smalltext"><a href="modcp.php?action=avatarapproval" class="modcp_nav_item" style="background: url(\'images/modcp/modqueue.gif\') no-repeat left center;">{$lang->ougc_avatarapproval_modcp_nav}</a></td></tr>',
+		'modcp_nav'			=> '<tr><td class="trow1 smalltext"><a href="modcp.php?action=avatarapproval" class="modcp_nav_item modcp_nav_modqueue">{$lang->ougc_avatarapproval_modcp_nav}</a></td></tr>',
 		'modcp_list_empty'	=> '<tr>
 	<td class="trow1" colspan="{$colspan}" align="center">
 		{$lang->ougc_avatarapproval_modcp_list_empty}
@@ -254,7 +254,7 @@ function ougc_avatarapproval_activate()
 	find_replace_templatesets('header', '#'.preg_quote('{$pm_notice}').'#', '<!--OUGC_AVATARAPPROVAL-->{$pm_notice}');
 	find_replace_templatesets('usercp_avatar', '#'.preg_quote('{$avatar_error}').'#', '{$ougc_avatarapproval}{$avatar_error}');
 	find_replace_templatesets('usercp_avatar_gallery', '#'.preg_quote('{$avatar_error}').'#', '{$ougc_avatarapproval}{$avatar_error}');
-	find_replace_templatesets('modcp_nav', '#'.preg_quote('mcp_nav_ipsearch}</a></td></tr>').'#', 'mcp_nav_ipsearch}</a></td></tr><!--OUGC_AVATARAPPROVAL_NAV-->');
+	find_replace_templatesets('modcp_nav', '#'.preg_quote('{$modcp_nav_users}').'#', '{$modcp_nav_users}<!--OUGC_AVATARAPPROVAL_NAV-->');
 
 	// Insert/update version into cache
 	$plugins = $cache->read('ougc_plugins');
