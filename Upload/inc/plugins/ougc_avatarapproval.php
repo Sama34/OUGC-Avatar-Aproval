@@ -937,7 +937,7 @@ function ougc_avatarapproval_modcp()
 	}
 	else
 	{
-		$settings['ougc_format_avatar'] = $settings['ougc_avatarapproval_maxwh'];
+		$mybb->settings['ougc_format_avatar'] = $mybb->settings['ougc_avatarapproval_maxwh'];
 
 		$bgcolor = alt_trow(true);
 
@@ -1183,7 +1183,7 @@ if(!function_exists('ougc_format_avatar'))
 			if(isset($dimensions[0]) && isset($dimensions[1]))
 			{
 				// MyBB 1.7 compatible
-				list($maxwidth, $maxheight) = isset($settings['maxavatardims']) ? $settings['maxavatardims'] : $settings['ougc_format_avatar'];
+				list($maxwidth, $maxheight) = explode('x', my_strtolower(isset($settings['ougc_format_avatar']) ? $settings['ougc_format_avatar'] : $settings['maxavatardims']));
 				if($dimensions[0] > (int)$maxwidth || $dimensions[1] > (int)$maxheight)
 				{
 					require_once MYBB_ROOT.'inc/functions_image.php';
