@@ -993,12 +993,25 @@ function ougc_avatarapproval_modcp()
 
 			$approval['aid'] = (int)$approval['aid'];
 			$approval['uid'] = (int)$approval['uid'];
-			$approval['avatar'] = ougc_format_avatar(array(
-				'uid'				=> $approval['uid'],
-				'avatar'			=> $approval['avatar'],
-				'avatardimensions'	=> $approval['avatardimensions'],
-			));
 			$approval['status'] = (int)$approval['status'];
+
+			// once the request is processed we have to use the default avatar
+			if($approval['status'])
+			{
+				$approval['avatar'] = ougc_format_avatar(array(
+					'uid'				=> $approval['uid'],
+					'avatar'			=> $mybb->settings['useravatar'],
+					'avatardimensions'	=> $mybb->settings['useravatardims'],
+				));
+			}
+			else
+			{
+				$approval['avatar'] = ougc_format_avatar(array(
+					'uid'				=> $approval['uid'],
+					'avatar'			=> $approval['avatar'],
+					'avatardimensions'	=> $approval['avatardimensions'],
+				));
+			}
 
 			$appvotes = $rejvotes = 0;
 			$approval['appvotes'] = $avatarapproval->clean_ints($approval['appvotes']);
