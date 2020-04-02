@@ -4,9 +4,9 @@
  *
  *	OUGC Avatar Approval plugin (/inc/languages/english/ougc_avatarapproval.php)
  *	Author: Omar Gonzalez
- *	Copyright: © 2014 Omar Gonzalez
+ *	Copyright: © 2014-2020 Omar Gonzalez
  *
- *	Website: http://omarg.me
+ *	Website: https://ougc.network
  *
  *	Allow moderators to manage avatar uploads/updates.
  *
