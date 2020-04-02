@@ -4,9 +4,9 @@
  *
  *	OUGC Avatar Approval plugin (/inc/plugins/ougc_avatarapproval.php)
  *	Author: Omar Gonzalez
- *	Copyright: © 2014 Omar Gonzalez
+ *	Copyright: © 2014-2020 Omar Gonzalez
  *
- *	Website: http://omarg.me
+ *	Website: https://ougc.network
  *
  *	Allow moderators to manage avatar uploads/updates.
  *
@@ -71,7 +71,7 @@ else
 	{
 		global $mybb;
 
-		$templatelist .= ',ougcavatarapproval_modcp_nav';
+		$templatelist .= ',ougcavatarapproval_modcp_nav,';
 
 		if($mybb->input['action'] == 'avatarapproval')
 		{
@@ -102,15 +102,15 @@ function ougc_avatarapproval_info()
 	return array(
 		'name'			=> 'OUGC Avatar Approval',
 		'description'	=> $lang->setting_group_ougc_avatarapproval_desc,
-		'website'		=> 'http://omarg.me',
+		'website'		=> 'https://ougc.network',
 		'author'		=> 'Omar G.',
-		'authorsite'	=> 'http://omarg.me',
-		'version'		=> '1.8',
-		'versioncode'	=> 1800,
+		'authorsite'	=> 'https://ougc.network',
+		'version'		=> '1.8.22',
+		'versioncode'	=> 1822,
 		'compatibility'	=> '18*',
 		'pl'			=> array(
-			'version'	=> 12,
-			'url'		=> 'http://mods.mybb.com/view/pluginlibrary'
+			'version'	=> 13,
+			'url'		=> 'https://community.mybb.com/mods.php?action=view&pid=573'
 		)
 	);
 }
@@ -654,14 +654,22 @@ function ougc_avatarapproval_usercp()
 	$avatar_error = inline_error($avatar_error);
 }
 
-// Notify users about their approbalawaiting
+// Notify users about their approbal awaiting
 function ougc_avatarapproval_avatar_end()
 {
-	global $ougc_avatarapproval, $mybb;
+	global $ougc_avatarapproval, $mybb, $avatarapproval;
 
 	$ougc_avatarapproval = '';
 	if(!($aid = $mybb->user['avatarapproval'] = (int)$mybb->user['avatarapproval']))
 	{
+		return;
+	}
+
+	// this isn't working so workaround~~
+	$approval = $avatarapproval->get_approval($aid);
+	if($avatarapproval->approval['status'])
+	{
+		$avatarapproval->update_user_approval($mybb->user['uid'], 0);
 		return;
 	}
 
@@ -775,7 +783,7 @@ function ougc_avatarapproval_modcp()
 	add_breadcrumb($lang->nav_modcp, $mybb->settings['bburl'].'/modcp.php');
 	add_breadcrumb($lang->ougc_avatarapproval_modcp_nav, $mybb->settings['bburl'].'/modcp.php?action=avatarapproval');
 
-	$errors = '';
+	$errors = array();
 	if($mybb->request_method == 'post')
 	{
 		// Verify incoming POST request
@@ -827,7 +835,7 @@ function ougc_avatarapproval_modcp()
 			{
 				$avatarapproval->get_approval($aid);
 
-					$avatarapproval->{$method}();
+				$avatarapproval->{$method}();
 			}
 
 			redirect($mybb->settings['bburl'].'/modcp.php?action=avatarapproval', $lang->ougc_avatarapproval_modcp_redirect);
@@ -1343,7 +1351,6 @@ class OUGC_AvatarApproval
 						$rename = rename($oldfile, $newfile);
 					}
 				}
-				
 
 				global $db;
 

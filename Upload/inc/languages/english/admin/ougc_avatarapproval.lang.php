@@ -4,9 +4,9 @@
  *
  *	OUGC Avatar Approval plugin (/inc/languages/english/admin/ougc_avatarapproval.php)
  *	Author: Omar Gonzalez
- *	Copyright: © 2014 Omar Gonzalez
+ *	Copyright: © 2014-2020 Omar Gonzalez
  *
- *	Website: http://omarg.me
+ *	Website: https://ougc.network
  *
  *	Allow moderators to manage avatar uploads/updates.
  *
@@ -29,7 +29,7 @@
 
 // Plugin API
 $l['setting_group_ougc_avatarapproval'] = 'OUGC Avatar Approval';
-$l['setting_group_ougc_avatarapproval_desc'] = 'Allow moderators to manage avatar uploads/updates.';
+$l['setting_group_ougc_avatarapproval_desc'] = 'Allow moderators to manage avatar uploads and updates for approval.';
 
 // Settings
 $l['setting_ougc_avatarapproval_bypassgroups'] = 'Bypass Groups';
