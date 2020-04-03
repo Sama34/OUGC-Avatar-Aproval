@@ -108,6 +108,7 @@ function ougc_avatarapproval_info()
 		'version'		=> '1.8.22',
 		'versioncode'	=> 1822,
 		'compatibility'	=> '18*',
+		'codename'		=> 'ougc_avatarapproval',
 		'pl'			=> array(
 			'version'	=> 13,
 			'url'		=> 'https://community.mybb.com/mods.php?action=view&pid=573'
